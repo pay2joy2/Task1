@@ -2,8 +2,9 @@ package org.example;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
-public class OwnArrayList<E> {
+public class OwnArrayList<E>  {
 
     private static final int capacity = 5;
     private int size = 0;
@@ -32,15 +33,25 @@ public class OwnArrayList<E> {
                 resizeArray();
             }
             size++;
+            for(int i = size - 1; i > index; i--){
+                elements[i] = elements[i-1];
+            }
             elements[index] = e;
         }
     }
+
+    public int size(){
+        return size;
+    }
+
+    public List<E> showAsList(){
+        return Arrays.asList(Arrays.copyOf((E[]) elements,size));
+    }
+
     public void showAll(){
-        System.out.print("[");
         for(int i = 0; i < size; i++){
             System.out.print(elements[i] + " ");
         }
-        System.out.print("]");
     }
 
     public E get(int index) {

@@ -8,17 +8,45 @@ public class Main {
 
         OwnArrayList<Integer> test = new OwnArrayList<>();
 
-        test.add(8);
-        test.add(7);
-        test.add(6);
-        test.add(5);
-        test.add(4);
+        test.add(1);
+        test.add(2);
+        test.add(3);
 
-        test.sort(Comparator.naturalOrder());
+        test.add(1,9);
 
-        test.showAll();
+        System.out.println(test.showAsList());
 
+//
+//        test.clear();
+//
+//        OwnArrayList<String> aboba = new OwnArrayList<>();
+//
+//        aboba.add("Z");
+//        aboba.add("B");
+//        aboba.add("Y");
+//        aboba.add("M");
+//        aboba.add("A");
+//        aboba.add("X");
+//
+//        aboba.sort(Comparator.naturalOrder());
+//
+//        System.out.println(aboba.showAsList());
 
+//        ArrayList<Integer> x =  new ArrayList<>();
+//
+//        x.add(1);
+//        x.add(2);
+//        x.add(3);
+//
+//        for(Integer meow : x){
+//            System.out.println(meow);
+//        }
+//
+//        x.add(1,9);
+//
+//        for(Integer meow : x){
+//            System.out.println(meow);
+//        }
 
     }
 }

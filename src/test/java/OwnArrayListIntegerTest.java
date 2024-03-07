@@ -4,19 +4,18 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class OwnArrayListTest {
+class OwnArrayListIntegerTest {
 
     private OwnArrayList<Integer> list;
-
     @BeforeEach
     void setUp() {
         list = new OwnArrayList<>();
     }
+
 
     @Test
     void testAdd() {
@@ -27,6 +26,7 @@ class OwnArrayListTest {
         assertEquals(3, list.size());
         assertEquals(Arrays.asList(1, 2, 3), list.showAsList());
     }
+
 
     @Test
     void testAddAtIndex() {
@@ -39,7 +39,14 @@ class OwnArrayListTest {
     }
 
     @Test
-    void testShowAll() {
+    void testAddAtWrongIndex() {
+        list.add(1);
+        list.add(2);
+        assertThrows(IndexOutOfBoundsException.class, ()-> list.add(5, 1));
+    }
+
+    @Test
+    void testShowAsList() {
         list.add(1);
         list.add(2);
         list.add(3);
@@ -54,6 +61,14 @@ class OwnArrayListTest {
 
         assertEquals(2, list.get(1));
     }
+    @Test
+    void testGetAtWrongIndex() {
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+        assertThrows(IndexOutOfBoundsException.class, ()-> list.add(5, 1));
+    }
 
     @Test
     void testRemove() {
@@ -66,6 +81,14 @@ class OwnArrayListTest {
         assertEquals(2, list.size());
         assertEquals(Arrays.asList(1, 3), list.showAsList());
     }
+    @Test
+    void testRemoveAtWrongIndex() {
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+        assertThrows(IndexOutOfBoundsException.class, ()-> list.remove(5));
+    }
 
     @Test
     void testClear() {
@@ -76,7 +99,7 @@ class OwnArrayListTest {
         list.clear();
 
         assertEquals(0, list.size());
-        assertEquals(Arrays.asList(), list.showAsList());
+        assertEquals(List.of(), list.showAsList());
     }
 
     @Test
